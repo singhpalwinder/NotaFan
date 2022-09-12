@@ -23,7 +23,7 @@ L.login(userName, password)
 profile = instaloader.Profile.from_username(L.context, userName)
 
 # Print list of followees
-followers_list = [] #current folowers list
+followers_list = [] #current followers list
 
 following_list = [] #current following list
 
