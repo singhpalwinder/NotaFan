@@ -1,2 +1,4 @@
 #ignore all text files
 *.txt
+*.json
+/test.py
