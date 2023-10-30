@@ -2,3 +2,4 @@
 *.txt
 /test.py
 /credentials.py
+*.DS_Store
