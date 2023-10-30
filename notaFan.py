@@ -1,13 +1,15 @@
 # Get instance
 import instaloader
 from instaloader.exceptions import TwoFactorAuthRequiredException
+import credentials
+import send_email
 
 L = instaloader.Instaloader()
 
 # Login or load session
 
-userName = "username"
-password = "password"
+userName = credentials.userName
+password = credentials.password
 
 fileName1 = "notFollowingBack.txt"
 fileName2 = "updated_notFollowing_Back.txt"
@@ -73,11 +75,6 @@ with open(fileName1, 'a') as f:
         f.write("%s\n" % items)
 
 
+send_email.email_alert()
 
 print('Done')
-
-
-
-
-
-        
