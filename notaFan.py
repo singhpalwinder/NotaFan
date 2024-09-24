@@ -2,7 +2,6 @@
 import instaloader
 from instaloader.exceptions import TwoFactorAuthRequiredException
 import credentials
-import send_email
 
 L = instaloader.Instaloader()
 
@@ -10,16 +9,15 @@ L = instaloader.Instaloader()
 
 userName = credentials.userName
 password = credentials.password
-
+auth_code=credentials.auth_code
 fileName1 = "notFollowingBack.txt"
-fileName2 = "updated_notFollowing_Back.txt"
+fileName2 = "updated.txt"
 
-#try:
-
-L.login(userName, password)
-
-#except TwoFactorAuthRequiredException:
- #   L.two_factor_login(11111)
+try:
+    L.login(userName, password)
+except TwoFactorAuthRequiredException:
+     L.two_factor_login(auth_code)
+     L.save_session_to_file('loginSession')
 
 # Obtain profile metadata
 profile = instaloader.Profile.from_username(L.context, userName)
@@ -75,6 +73,5 @@ with open(fileName1, 'a') as f:
         f.write("%s\n" % items)
 
 
-send_email.email_alert()
 
 print('Done')

@@ -1,5 +1,4 @@
 #ignore all text files
 *.txt
-/test.py
-/credentials.py
-*.DS_Store
+credentials.py
+.DS_Store
