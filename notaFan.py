@@ -27,7 +27,6 @@ def getNotFollowingBack(user, password, auth, lastChecked):
         L.login(user, password)
     except TwoFactorAuthRequiredException:
         L.two_factor_login(auth)
-        L.save_session_to_file('loginSession')
 
     # Obtain profile metadata
     profile = instaloader.Profile.from_username(L.context, user)
